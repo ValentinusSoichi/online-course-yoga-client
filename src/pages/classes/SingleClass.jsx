@@ -15,7 +15,7 @@ const SingleClass = () => {
 
     const handleSelect = (id) =>{
     
-        axiosSecure.get(`/enrolled-classes/${currentUser?.email}`)
+        axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/enrolled-classes/${currentUser?.email}`)
         .then(res => setEnrolledClasses(res.data))
         .catch(err =>console.log(err))
     
@@ -24,7 +24,7 @@ const SingleClass = () => {
     
         }
     
-        axiosSecure.get(`/cart-item/${id}?email=${currentUser.email}`)
+        axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/cart-item/${id}?email=${currentUser.email}`)
         .then(res =>{
           if(res.data.classId === id){
             return alert("Already Selected")
@@ -38,7 +38,7 @@ const SingleClass = () => {
             }
     
     
-            axiosSecure.post('/add-to-cart', data)
+            axiosSecure.post('https://online-course-yoga-server-e15cda602871.herokuapp.com/add-to-cart', data)
             .then(res=>{
               alert("Added");
               console.log(res.data);
