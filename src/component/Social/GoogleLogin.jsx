@@ -23,7 +23,7 @@ const GoogleLogin = () => {
                     phone:"Is not Specified",
                 };
                 if(user.email && user.displayName){
-                    return axios.post('http://localhost:5000/new-user', userImp)
+                    return axios.post('https://online-course-yoga-server-e15cda602871.herokuapp.com/new-user', userImp)
                     .then(()=>{
                         navigate('/');
                         return "Register Complete"
