@@ -159,7 +159,7 @@ const DashboardLayout = () => {
         )}
 
         {role === "user" && (<ul className='pt-6'>
-                <p className={`ml-3 text-gray-500 ${!open && "hidden"}`}><small>MENU</small></p>
+                <p className={`ml-3 text-gray-500  ${!open && "hidden"}`}><small>MENU</small></p>
                 {
                     role === "user" && studentNavItem.map((menuItem,index)=>(
                         <li key={index} className='mb-2'>

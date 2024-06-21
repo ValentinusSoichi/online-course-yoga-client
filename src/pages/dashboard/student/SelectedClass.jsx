@@ -20,7 +20,7 @@ const SelectedClass = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(()=>{
-    axiosSecure.get(`/cart/${currentUser?.email}`).then((res)=>{
+    axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/cart/${currentUser?.email}`).then((res)=>{
       setClasses(res.data);
       setLoading(false)
     }
@@ -50,7 +50,7 @@ const SelectedClass = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/delete-cart-item/${id}`).then((res)=>{
+        axiosSecure.delete(`https://online-course-yoga-server-e15cda602871.herokuapp.com/delete-cart-item/${id}`).then((res)=>{
           if(res.data.deletedCount > 0){
             Swal.fire({
               title: "Deleted!",

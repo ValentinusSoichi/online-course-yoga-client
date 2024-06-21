@@ -8,7 +8,7 @@ const Instructors = () => {
   const [instructor, setInstructor] = useState([]);
     const axiosFetch = useAxiosFetch();
     useEffect(()=>{
-        axiosFetch.get('/instructors').then((data)=>{
+        axiosFetch.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/instructors').then((data)=>{
             setInstructor(data.data)
         }).catch((err)=>{
             console.log(err)

@@ -5,7 +5,7 @@ import welcomeImg from "../../../assets/dashboard/urban-welcome.svg"
 const StudentCP = () => {
     const {currentUser, isLoading} = useUser();
   return (
-    <div className='h-screen flex justify-center items-center'>
+    <div className='h-screen flex justify-center items-center '>
       <div>
         <div>
             <div>

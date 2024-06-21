@@ -2,10 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import useAxiosFetch from '../../hooks/useAxiosFetch';
 import { Transition } from '@headlessui/react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaCartArrowDown } from 'react-icons/fa';
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -16,13 +17,14 @@ const Classes = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const axiosFetch = useAxiosFetch();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
 
   const handleHover = (index) =>{
     setHoveredCard(index);
   }
   useEffect(()=>{
-    axiosFetch.get('/classes')
+    axiosFetch.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/classes')
     .then(res =>{
       const filteredClasses = res.data.filter(cls => cls.status !== 'rejected');
       setClasses(filteredClasses)
@@ -34,7 +36,7 @@ const Classes = () => {
 
   const handleSelect = (id) =>{ 
     
-    axiosSecure.get(`/enrolled-classes/${currentUser?.email}`)
+    axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/enrolled-classes/${currentUser?.email}`)
     .then(res => setEnrolledClasses(res.data))
     .catch(err =>console.log(err))
 
@@ -43,7 +45,7 @@ const Classes = () => {
 
     }
 
-    axiosSecure.get(`/cart-item/${id}?email=${currentUser.email}`)
+    axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/cart-item/${id}?email=${currentUser.email}`)
     .then(res =>{
       if(res.data.classId === id){
         return alert("Already Selected")
@@ -57,7 +59,7 @@ const Classes = () => {
         }
 
 
-        axiosSecure.post('/add-to-cart', data)
+        axiosSecure.post('https://online-course-yoga-server-e15cda602871.herokuapp.com/add-to-cart', data)
         .then(res=>{
           alert("Added");
           console.log(res.data);
@@ -70,7 +72,7 @@ const Classes = () => {
   return (
     <div>
       <div className='mt-20 pt-3'>
-        <h1 className='text-4xl font-bold text-center text-primary'>Classes</h1>
+        <h1 className='text-4xl font-bold text-center text-blue-700'>Courses</h1>
       </div>
 
       <div className='my-16 w-[90%] mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8'>
@@ -123,6 +125,14 @@ const Classes = () => {
           }
         
       </div>
+      <button 
+        className="fixed bottom-4 right-4 bg-blue-500 text-white p-6 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        onClick={() => navigate("/dashboard/my-selected")}
+      >
+        <FaCartArrowDown />
+      </button>
+
+      
     </div>
   )
 }

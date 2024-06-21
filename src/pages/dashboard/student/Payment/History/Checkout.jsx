@@ -16,7 +16,7 @@ const Checkout = ({price, cartItm}) => {
   }
 
   useEffect(()=>{
-    axiosSecure.get(`/cart/${currentUser?.email}`).then((res)=>{
+    axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/cart/${currentUser?.email}`).then((res)=>{
         const classesId = res.data.map(item=>item._id);
         setCart(classesId)
         

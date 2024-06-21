@@ -23,7 +23,7 @@ const ManageClasses = () => {
 
     
     useEffect(()=>{
-        axiosFetch.get('/classes-manage').then(res=>setClasses(res.data))
+        axiosFetch.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/classes-manage').then(res=>setClasses(res.data))
         .catch(err => console.log(err))
 
     },[])
@@ -41,7 +41,7 @@ const ManageClasses = () => {
 
 
     const handleApprove =(id) =>{
-        axiosSecure.put(`/change-status/${id}`, {status: 'approved'}).then(res=>{
+        axiosSecure.put(`https://online-course-yoga-server-e15cda602871.herokuapp.com/change-status/${id}`, {status: 'approved'}).then(res=>{
             console.log(res.data);
             alert("Course Approved")
             const updateclass = classes.map(cls=> cls._id === id ? {...cls, status: 'approved'} : cls)
@@ -61,7 +61,7 @@ const ManageClasses = () => {
             confirmButtonText: "Yes, reject it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                const res = axiosSecure.put(`/change-status/${id}`, {status: 'rejected', reason: 'rejected'});
+                const res = axiosSecure.put(`https://online-course-yoga-server-e15cda602871.herokuapp.com/change-status/${id}`, {status: 'rejected', reason: 'rejected'});
                 if (res.data.modifiedCount > 0){
                     Swal.fire({
                         title: "Rejected!",

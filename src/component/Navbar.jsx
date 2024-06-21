@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 const navLinks = [
     {name: "Home", route: '/'},
     {name: "Instructors", route: '/instructors'},
-    {name: "Classes", route: '/classes'},
+    {name: "Courses", route: '/classes'},
 ];
 
 const theme = createTheme({
@@ -45,6 +45,7 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
     };
 
+
     useEffect(()=>{
         const darkClass = 'dark';
         const root = window.document.documentElement;
@@ -67,7 +68,7 @@ const Navbar = () => {
     useEffect(()=>{
 
         const handleScroll = () =>{
-            const currentPosition = window.pageXOffset;
+            const currentPosition = window.pageYOffset;
             setScrollPosition(currentPosition);
 
         };
@@ -81,13 +82,13 @@ const Navbar = () => {
     useEffect(()=>{
         if(scrollPosition > 100){
             if(isHome){
-                setNavBg('bg-white backdrop-filter backdrop-blur-xl bg-opacity-0 dark:text-white text=black')
+                setNavBg('bg-white backdrop-filter backdrop-blur-xl bg-opacity-0 dark:text-white text-black')
             }
             else{
                 setNavBg('bg-white dark:bg-black dark:text-white text-black')
             }
         }else{
-            setNavBg(`${isHome || location.pathname === '/' ? 'bg-transparent': 'bg=white dark:bg-black'}
+            setNavBg(`${isHome || location.pathname === '/' ? 'bg-transparent': 'bg-white dark:bg-black'}
              dark:text-white text-white`)
         }
     },[scrollPosition]);
@@ -137,13 +138,16 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className='md:hidden flex items-center'>
+                {/* <div className='md:hidden flex items-center'>
                         <button type='button' onClick={toggleMobileMenu} className='text-gray-300 hover:text-white focus:outline-none'>
                                 <FaBars className="h-6 w-6 hover:text-primary"/>
                         </button>
-                </div>
-
-                <div className='hidden md:block text-black dark:text-white'>
+                </div> */}
+                
+               
+                
+                
+                <div className=' md:block text-black dark:text-white'>
                     <div className='flex'>
                         <ul className='ml-10 flex items-center space-x-4 pr-4'>
                             {navLinks.map((Link)=>(
@@ -152,7 +156,7 @@ const Navbar = () => {
                                         <NavLink
                                         
                                          to={Link.route} style={{whiteSpace: "nowrap"}} className={({ isActive }) =>
-                                            `font-bold ${isActive ? 'text-secondary' : `${navBg.includes('bg-transparent')? 'text-white' : 'text-black dark:text-white'}`} hover:text-secondary duration-300`
+                                            `font-bold ${isActive  ? 'text-secondary' : `${navBg.includes('bg-transparent')? 'text-white' : 'text-black dark:text-white'}`} hover:text-secondary duration-300`
                     }>
                                             {Link.name}
                                         </NavLink>
@@ -206,9 +210,11 @@ const Navbar = () => {
 
 
                         </ul>
+                
 
                     </div>
                 </div>
+
 
 
             </div>

@@ -28,7 +28,7 @@ const AddClass = () => {
                 newData.status = 'pending';
                 newData.submitted = new Date();
                 newData.totalEnrolled = 0;
-                axiosSecure.post(`/new-class`, newData).then(res=> {
+                axiosSecure.post(`https://online-course-yoga-server-e15cda602871.herokuapp.com/new-class`, newData).then(res=> {
                     alert("Successfully Add your class");
                     console.log(res.data)
                 })

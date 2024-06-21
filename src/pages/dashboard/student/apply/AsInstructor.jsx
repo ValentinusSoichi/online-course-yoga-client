@@ -10,7 +10,7 @@ const AsInstructor = () => {
   const axiosFetch = useAxiosFetch();
 
   useEffect(()=>{
-    axiosFetch.get(`/applied-instructors/${currentUser?.mail}`)
+    axiosFetch.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/applied-instructors/${currentUser?.mail}`)
     .then(
       res=>{
         setSubmittedData(res.data);

@@ -12,7 +12,7 @@ const MyClass = () => {
 
 
     useEffect(()=>{
-        axiosSecure.get(`/classes/${currentUser?.email}`).then(res=>setClasses(res.data)).catch(err=>console.log(err))
+        axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/classes/${currentUser?.email}`).then(res=>setClasses(res.data)).catch(err=>console.log(err))
 
 
     },[isLoading])

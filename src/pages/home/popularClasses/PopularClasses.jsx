@@ -9,7 +9,7 @@ const PopularClasses = () => {
     const [classes,setClassses] = useState([]);
     useEffect(()=>{
         const fetchClasses = async () =>{
-            const response = await axiosFetch.get('/classes');
+            const response = await axiosFetch.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/classes');
             
             setClassses(response.data);
 

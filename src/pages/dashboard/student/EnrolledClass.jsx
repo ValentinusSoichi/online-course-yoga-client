@@ -10,7 +10,7 @@ const EnrolledClass = () => {
   const {currentUser} = useUser();
 
   useEffect(()=>{
-    axiosSecure.get(`/enrolled-classes/${currentUser?.email}`)
+    axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/enrolled-classes/${currentUser?.email}`)
     .then(res=>{
       setData(res.data);
   }).catch(err=>console.log(err));
@@ -18,7 +18,7 @@ const EnrolledClass = () => {
   return (
     <div>
       <h1 className='text-2xl my-6'>Enrolled Classes</h1>
-      <div className='grid md:grid-cols-2 gap-6 grid-cols-1 lg:grid-cols-3'>
+      <div className='grid sm:grid-cols-1 md:grid-cols-1 gap-6 grid-cols-1 lg:grid-cols-3'>
         {
           data.map((item, index)=>(
             <div key={index} className='bg-white shadow-md h-96 mx-3 rounded-3xl flex md:flex-row justify-around items-center overflow-hidden sm:flex-grow sm:h-52 sm:w-3/5'>

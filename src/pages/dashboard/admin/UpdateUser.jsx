@@ -15,7 +15,7 @@ const UpdateUser = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const updateData = Object.fromEntries(formData);
-        axiosSecure.put(`/update-user/${userCredentials?._id}`, updateData)
+        axiosSecure.put(`https://online-course-yoga-server-e15cda602871.herokuapp.com/update-user/${userCredentials?._id}`, updateData)
         .then(res=>{
             if(res.data.modifiedCount > 0){
                 alert("User Updated Success")

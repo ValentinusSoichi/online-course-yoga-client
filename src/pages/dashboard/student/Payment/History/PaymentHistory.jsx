@@ -26,7 +26,7 @@ const PaymentHistory = () => {
   },[page, payment])
 
   useEffect(()=>{
-    axiosFetch.get(`/payment-history/${currentUser?.email}`).then(res=>{
+    axiosFetch.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/payment-history/${currentUser?.email}`).then(res=>{
       setPayment(res.data);
       setLoading(false);
     }).catch(err => console.log(err))
