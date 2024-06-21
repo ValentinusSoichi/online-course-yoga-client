@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://online-course-yoga-server-e15cda602871.herokuapp.com/',
   });
 
   useEffect(()=>{
