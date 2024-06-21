@@ -110,7 +110,7 @@ const Classes = () => {
               </div>
 
               <div className='px-6 py-2'>
-                  <h3 className={`${cls.name.length >25 ? "text-[14px]" : "text-[16px]"} font-bold`}>{cls.name}</h3>
+                  <h3 className={`${cls.name?.length >25 ? "text-[14px]" : "text-[16px]"} font-bold`}>{cls.name}</h3>
                   <p className='text-gray-500 text-xs '>Instructor: {cls.instructorName  }</p>
                   <div className='flex flex-col items-center justify-between mt-4'>
                     <span className='text-gray-500 text-xs'>Available Seats: {cls.availableSeats}</span>
