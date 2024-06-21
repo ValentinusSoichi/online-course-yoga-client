@@ -12,7 +12,7 @@ const useUser = () => {
   const {data: currentUser, isLoading, refetch} = useQuery({
     queryKey: ['user', userEmail],
     queryFn: async() =>{
-        const res = await axiosSecure.get(`/user/${user?.email}`);
+        const res = await axiosSecure.get(`https://online-course-yoga-server-e15cda602871.herokuapp.com/user/${user?.email}`);
         return res.data;
     },
     enabled: !!user?.email && !!localStorage.getItem('token')

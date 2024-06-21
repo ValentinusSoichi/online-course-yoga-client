@@ -7,7 +7,7 @@ const AdminStats = ({users}) => {
     const [data,setData] = useState();
     const axiosSecure = useAxiosSecure();
     useEffect(()=>{
-        axiosSecure.get('/admin-stats').then(res=> setData(res.data))
+        axiosSecure.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/admin-stats').then(res=> setData(res.data))
         .catch(err =>console.log(err))
 
     },[])

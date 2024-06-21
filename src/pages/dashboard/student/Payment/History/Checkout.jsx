@@ -4,7 +4,7 @@ import useUser from '../../../../../hooks/useUser';
 import { Navigate } from 'react-router-dom';
 
 const Checkout = ({price, cartItm}) => {
-    const URL = `http://localhost:5000/payment-info?${cartItm && `classId=${cartItm}`}`
+    const URL = `https://online-course-yoga-server-e15cda602871.herokuapp.com/payment-info?${cartItm && `classId=${cartItm}`}`
   const axiosSecure = useAxiosSecure();
   const {currentUser, isLoading} = useUser();
   const [success,setSuccess] = useState('');

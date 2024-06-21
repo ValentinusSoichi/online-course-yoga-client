@@ -8,7 +8,7 @@ const AdminHome = () => {
     const axiosFetch = useAxiosFetch();
     const [users, setUsers] = useState([]);
     useEffect(()=>{
-        axiosFetch.get('/users')
+        axiosFetch.get('https://online-course-yoga-server-e15cda602871.herokuapp.com/users')
         .then(res=>{
             setUsers(res.data)
         
