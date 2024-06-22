@@ -21,6 +21,7 @@ const Login = () => {
       alert("Login Success!")
       navigate(location.state?.from || '/dashboard')
     }).catch((err)=>{
+      alert("Password or Email Wrong")
       setError(err.code);
       setLoader(false);
     })
