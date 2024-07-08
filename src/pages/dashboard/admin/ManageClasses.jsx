@@ -164,6 +164,7 @@ const ManageClasses = () => {
                                                         }
                                                     </div>
                                                 </td>
+                                                alert("Success Delete");
                                             </tr>
                                         ))
                                         
