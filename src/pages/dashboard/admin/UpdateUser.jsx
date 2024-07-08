@@ -116,7 +116,7 @@ const UpdateUser = () => {
                                 <div>
                                     <input tabIndex="-1" name='option' className='peer sr-only' type="radio" value="instructor" id='option3' defaultChecked={userCredentials?.role === 'instructor' ?true:false} />
                                 <label className='block w-full rounded-lg border border-secondary p-3 peer-checked:border-secondary
-                                    peer-checked:bg-secondary peer-checked:text-white' tabIndex="0" htmlFor="option2">
+                                    peer-checked:bg-secondary peer-checked:text-white' tabIndex="0" htmlFor="option3">
                                     <span className='text-sm font-medium'>Instructor</span>
                                 </label>
                                 
