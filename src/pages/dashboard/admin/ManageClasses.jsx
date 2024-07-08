@@ -164,7 +164,7 @@ const ManageClasses = () => {
                                                         }
                                                     </div>
                                                 </td>
-                                                a
+                                                
                                             </tr>
                                         ))
                                         
