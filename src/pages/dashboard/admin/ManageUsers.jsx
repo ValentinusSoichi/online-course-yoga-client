@@ -17,6 +17,7 @@ const ManageUsers = () => {
     },[])
 
     const handleDelete =(id) =>{
+        alert("Confirm Delete?");
         axiosSecure.delete(`https://online-course-yoga-server-e15cda602871.herokuapp.com/delete-user/${id}`)
         .then(res=>{
             alert("User Dleeted")
